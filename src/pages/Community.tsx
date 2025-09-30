@@ -1,3 +1,4 @@
+import Header from '@/components/Header';
 import { Card } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
@@ -51,9 +52,11 @@ const Community = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground py-8">
-      <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold mb-2">Сообщество</h1>
+    <div className="min-h-screen bg-background">
+      <Header />
+      
+      <div className="container mx-auto px-4 py-8">
+        <h1 className="text-4xl font-bold text-foreground mb-2">Сообщество</h1>
         <p className="text-muted-foreground mb-8">Познакомьтесь с участниками проекта</p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
@@ -64,7 +67,7 @@ const Community = () => {
                   <Icon name={stat.icon as any} size={24} className="text-accent" />
                 </div>
                 <div>
-                  <p className="text-3xl font-bold">{stat.value}</p>
+                  <p className="text-3xl font-bold text-foreground">{stat.value}</p>
                   <p className="text-sm text-muted-foreground">{stat.label}</p>
                 </div>
               </div>
@@ -72,7 +75,7 @@ const Community = () => {
           ))}
         </div>
 
-        <h2 className="text-2xl font-bold mb-6">Активные участники</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-6">Активные участники</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {members.map((member) => (
             <Card key={member.id} className="p-6 border-border bg-card hover:border-accent/50 transition-all">
@@ -87,7 +90,7 @@ const Community = () => {
                   )}
                 </div>
                 
-                <h3 className="font-semibold text-lg mb-1">{member.name}</h3>
+                <h3 className="font-semibold text-lg text-foreground mb-1">{member.name}</h3>
                 <p className="text-sm text-muted-foreground mb-2">{member.role}</p>
                 
                 <Badge variant="outline" className="border-accent text-accent mb-3">
@@ -103,6 +106,27 @@ const Community = () => {
           ))}
         </div>
       </div>
+
+      <footer className="bg-card border-t border-border py-8 mt-16">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="text-muted-foreground mb-4 md:mb-0">
+              © 2025 CODE6 RolePlay. Все права защищены.
+            </div>
+            <div className="flex space-x-6">
+              <a href="#" className="text-muted-foreground hover:text-accent transition-colors">
+                Правила
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-accent transition-colors">
+                Discord
+              </a>
+              <a href="#" className="text-muted-foreground hover:text-accent transition-colors">
+                VK
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
